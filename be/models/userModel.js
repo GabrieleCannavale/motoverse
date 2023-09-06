@@ -29,7 +29,7 @@ const userModelSchema = new mongoose.Schema({
 		required: true,
 	},
 
-	avatar: {
+	userAvatar: {
 		type: String,
 		required: false,
 		default: "https://img.myloview.com/stickers/default-avatar-profile-icon-vector-social-media-user-image-700-205124837.jpg"

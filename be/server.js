@@ -8,16 +8,23 @@ const PORT = 5070
 
 
 //REQUIRING ROUTES
+const usersRoute = require('./routes/users')
 
-//REQUIRING MIDDLEWARES
+//REQUIRING GLOBAL MIDDLEWARES
 
 
 
 const app = express();
 
-//ROUTES
-
 //MIDDLEWARES
+app.use(cors());
+app.use(express.json());
+
+
+//ROUTES
+app.use('/', usersRoute);
+
+
 
 mongoose.connect(process.env.MONGO_DB_URL);
 
