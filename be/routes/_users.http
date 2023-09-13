@@ -1,0 +1,12 @@
+
+POST http://localhost:5070/register HTTP/1.1
+
+
+{
+	"username": "Pino",
+    "fullName": "Insegno",
+    "email": "pino@premiataditta.it",
+    "birthDate": "02/01/1980",
+    "password":"LAGATTANERA",
+	"drivingExperienceLevel": "Beginner"
+}

@@ -8,7 +8,9 @@ const PORT = 5070
 
 
 //REQUIRING ROUTES
-const usersRoute = require('./routes/users')
+const usersRoute = require('./routes/users');
+const postsRoute = require('./routes/posts');
+const loginRoute = require('./routes/login');
 
 //REQUIRING GLOBAL MIDDLEWARES
 
@@ -23,6 +25,13 @@ app.use(express.json());
 
 //ROUTES
 app.use('/', usersRoute);
+app.use('/', postsRoute);
+app.use('/', loginRoute);
+
+app.use(function(err, req, res, next) {
+	console.error(err.stack);
+	res.status(500).send('Something broke!');
+  });
 
 
 

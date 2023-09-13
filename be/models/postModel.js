@@ -14,7 +14,11 @@ const postModelSchema = new mongoose.Schema({
 		type: String,
 		required: true
 	},
-	placeImage: {
+	province: {
+		type: String,
+		required: true
+	},
+	image: {
 		type: String,
 		required: false,
 		default: "https://di-sitebuilder-assets.s3.amazonaws.com/generic-placeholder.png",
