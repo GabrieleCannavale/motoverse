@@ -12,21 +12,22 @@ const post = express.Router();
 
 
 //!GET ALL POSTS
-post.get('/posts', verifiedToken, async (req, res) => {
+post.get('/posts', async (req, res) => {
 	const { page = 1, pageSize = 100 } = req.query;
 	try {
-		const totalPosts = await postModel.countDocuments();
+		const totalPosts = await postModel.count();
 
-		const posts = await postsModel.find()
+		const posts = await postModel.find()
 			.limit(pageSize)
 			.skip((page - 1) * pageSize)
-			.populate('user')
+			.populate('user', "username userAvatar")
 			.populate('comments');
 
 		res.status(200).send({
 			statusCode: 200,
 			totalPosts: totalPosts,
 			currentPage: +page,
+			totalPages: Math.ceil(totalPosts / pageSize),
 			pageSize: +pageSize,
 			posts: posts
 		})
@@ -80,7 +81,7 @@ post.post("/posts/create", postImage.single('image'), async (req, res) => {
 
 
 
-	const newPost = new PostsModel({
+	const newPost = new postModel({
 		title: req.body.title,
 		image: req.file.path,
 		startingPoint: req.body.startingPoint,
@@ -88,6 +89,7 @@ post.post("/posts/create", postImage.single('image'), async (req, res) => {
 		province: req.body.province,
 		kilometers: req.body.kilometers,
 		travelTime: req.body.travelTime,
+		date: req.body.date,
 		user: user._id,
 		content: req.body.content,
 	});
@@ -95,7 +97,7 @@ post.post("/posts/create", postImage.single('image'), async (req, res) => {
 	try {
 		const post = await newPost.save();
 		console.log(post);
-		await AuthorModel.updateOne({ _id: user.id }, { $push: { posts: post } })
+		await userModel.updateOne({ _id: user.id }, { $push: { posts: post } })
 		res.status(201).send({
 			statusCode: 201,
 			message: "Post saved successfully",

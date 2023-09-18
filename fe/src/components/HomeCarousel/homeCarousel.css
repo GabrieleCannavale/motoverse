@@ -1,0 +1,11 @@
+.my-carousel {
+    height: 300px;
+    overflow: hidden;
+  }
+
+ 
+  
+img #carousel-cover {
+  object-fit: contain !important;
+  align-self: flex-start;
+}

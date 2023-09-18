@@ -1,0 +1,17 @@
+.post-card {
+	display: flex;
+	width: 100%;
+  border-left: 0 !important;
+  margin-left: 0 !important;
+  padding-left:0 !important;
+  }
+  
+  .post-card__image {
+	width: 20%;
+  }
+  
+  .post-card__content {
+	width: 80%;
+  }
+  
+ 

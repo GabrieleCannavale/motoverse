@@ -10,7 +10,7 @@ import ProfileDropdown from '../profileDropdown/ProfileDropdown';
 export default function NavigationBar() {
   return (
     <>
-      <MDBNavbar fixed='top' light bgColor='light'>
+      <MDBNavbar className='mb-3' fixed='top' light bgColor='light'>
         <MDBContainer fluid>
           <MDBContainer className='d-flex  align-items-center'>
             <MDBNavbarBrand href='#'>motoverSe.it</MDBNavbarBrand>

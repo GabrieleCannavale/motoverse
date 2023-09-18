@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const endpoint = "http://localhost:5070"
+
 const initialState = {
 	usersArrayRedux: [],
 	status: 'idle'

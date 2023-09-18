@@ -10,6 +10,8 @@ import {
 import Form from 'react-bootstrap/Form';
 import { Row, Col } from 'react-bootstrap';
 
+import { toast } from 'react-toastify';
+
 import { FaMotorcycle } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -43,9 +45,23 @@ function RegisterForm() {
 
 		dispatch(userPost(data));
 		navigate("/")
+		
+		toast.success('Registration success', {
+			position: "top-center",
+			autoClose: 1200,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: true,
+			progress: undefined,
+			theme: "colored",
+			});
 	}
 
 
+	const goToLogin = () => {
+		navigate("/");
+	};
 
 
 	return (
@@ -102,6 +118,10 @@ function RegisterForm() {
 
 
 									<MDBBtn className='mt-4 w-100 mb-4 bg-danger' onClick={handleSubmit} size='md'> Register <FaMotorcycle /> </MDBBtn>
+
+									<div className='d-flex justify-content-center mb-4'>
+										Already have an account?   <a onClick={goToLogin}>go to Login</a>
+									</div>
 
 								</Form>
 
