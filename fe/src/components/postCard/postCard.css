@@ -1,5 +1,6 @@
 .post-card {
 	display: flex;
+  justify-content: space-between;
 	width: 100%;
   border-left: 0 !important;
   margin-left: 0 !important;
@@ -8,10 +9,40 @@
   
   .post-card__image {
 	width: 20%;
+  position: relative;
+ }
+  
+   
+  .post-card__author-avatar {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
   }
   
-  .post-card__content {
-	width: 80%;
+  .post-card__author-name {
+    position: absolute;
+    top: 70px;
+    left: 1px;
+  }
+
+  .tool-avatar {
+  border: 0 !important;
+  margin: 0 !important;
+  padding:0 !important;
   }
   
- 
+
+  .info__content {
+    display: flex;
+    justify-content: stretch;
+    flex-direction: column;
+   
+  }
+  
+  .experience-level {
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+  }

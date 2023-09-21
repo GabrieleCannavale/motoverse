@@ -1,6 +1,6 @@
 import { MDBContainer, MDBRow } from "mdb-react-ui-kit";
 
-import AddPostModal from "../addPostModal/addPostModal";
+import AddPostModal from "../addPostModal/AddPostModal";
 import { Col } from "react-bootstrap";
 import PostCard from "../postCard/PostCard";
 import { nanoid } from "nanoid";

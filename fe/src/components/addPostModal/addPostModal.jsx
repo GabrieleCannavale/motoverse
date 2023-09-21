@@ -35,6 +35,7 @@ const AddPostModal = () => {
 		if (token) {
 			const decodedToken = jwt_decode(token);
 			const userId = decodedToken.id;
+			//console.log(decodedToken)
 			const postData = {
 				user: userId,
 				title: title.current.value,

@@ -85,3 +85,17 @@ export const getPosts = createAsyncThunk(
 		}
 	}
 );
+
+//! GET SINGLE POST BY ID
+export const getPostById = createAsyncThunk(
+	"posts/SinglePost",
+	async (id) => {
+		try {
+			const res = await axios.get(`${endpoint}/posts/${id}`);
+			console.log(res.data)
+			return res.data
+		} catch (error) {
+			console.log(error)
+		}
+	}
+)

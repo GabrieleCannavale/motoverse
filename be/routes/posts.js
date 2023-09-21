@@ -20,7 +20,7 @@ post.get('/posts', async (req, res) => {
 		const posts = await postModel.find()
 			.limit(pageSize)
 			.skip((page - 1) * pageSize)
-			.populate('user', "username userAvatar")
+			.populate('user', "username userAvatar drivingExperienceLevel bio motos posts fullName")
 			.populate('comments');
 
 		res.status(200).send({
@@ -111,6 +111,41 @@ post.post("/posts/create", postImage.single('image'), async (req, res) => {
 		});
 	}
 });
+
+
+//!GET ALL POSTS BY USER
+post.get('/posts/user/:userId', async (req, res) => {
+	const { userId } = req.params;
+	const { page = 1, pageSize = 100 } = req.query;
+  
+	try {
+	  const totalPosts = await postModel.countDocuments({ user: userId });
+  
+	  const posts = await postModel.find({ user: userId })
+		.limit(pageSize)
+		.skip((page - 1) * pageSize)
+		.populate('user', "username userAvatar drivingExperienceLevel bio motos posts fullName")
+		.populate('comments');
+  
+	  res.status(200).send({
+		statusCode: 200,
+		totalPosts: totalPosts,
+		currentPage: +page,
+		totalPages: Math.ceil(totalPosts / pageSize),
+		pageSize: +pageSize,
+		posts: posts
+	  })
+	} catch (error) {
+	  console.log("Errore:", error);
+  
+	  res.status(500).send({
+		statusCode: 500,
+		message: "Errore interno del server",
+		error,
+	  });
+  
+	}
+  });
 
 module.exports = post;
 

@@ -1,0 +1,14 @@
+POST http://localhost:5070/comments/create HTTP/1.1
+Content-Type: application/json
+
+{
+	"user": "6501fa92dd75d99a683cd4f3",
+	"content": "bella iniziativa, verrò di sicuro",
+	"postId": "6507749c2de93411213d1111",
+	"match": "true"
+}
+
+########################
+
+GET http://localhost:5070/comments/post/6507749c2de93411213d1111 HTTP/1.1
+

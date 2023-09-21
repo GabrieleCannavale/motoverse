@@ -12,6 +12,7 @@ const usersRoute = require('./routes/users');
 const postsRoute = require('./routes/posts');
 const loginRoute = require('./routes/login');
 const githubRoute = require('./routes/githubRoutes');
+const commentsRoute = require ('./routes/comments');
 
 //REQUIRING GLOBAL MIDDLEWARES
 
@@ -29,6 +30,7 @@ app.use('/', usersRoute);
 app.use('/', postsRoute);
 app.use('/', loginRoute);
 app.use('/', githubRoute);
+app.use('/', commentsRoute);
 
 app.use(function(err, req, res, next) {
 	console.error(err.stack);
