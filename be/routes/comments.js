@@ -8,7 +8,10 @@ const comment = express.Router();
 //! GET COMMENTS BY POST ID
 comment.get("/comments/post/:postId", async (req, res) => {
 	try {
-		const comments = await commentModel.find({ postId: req.params.postId });
+		const comments = await commentModel.find({ postId: req.params.postId })
+			.populate('user')
+			
+
 
 		if (!comments || comments.length === 0) {
 			return res.status(404).send({

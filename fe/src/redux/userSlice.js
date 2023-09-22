@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const endpoint = "http://localhost:5070"
 
@@ -21,7 +22,6 @@ const userSlice = createSlice({
 export default userSlice.reducer;
 
 //! ADD NEW USER(post)
-
 export const userPost = createAsyncThunk(
 	"user/register",
 
@@ -47,6 +47,16 @@ export const userPost = createAsyncThunk(
 
 		} catch(error) {
 			console.log(error)
+			toast.error('Register error!', {
+				position: "top-center",
+				autoClose: 5000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+				theme: "light",
+				});
 		}
 	}
 )
