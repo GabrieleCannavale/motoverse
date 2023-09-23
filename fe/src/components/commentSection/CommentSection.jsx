@@ -22,7 +22,7 @@ export default function CommentSection({ comment }) {
               <MDBCardBody>
                 <div className="d-flex flex-start">
                   <MDBCardImage
-                    className="comment-avatar"
+                    className="comment-avatar me-2"
                     src={comment.user[0].userAvatar}
                     alt="avatar"
                     width="40"

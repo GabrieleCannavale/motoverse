@@ -5,58 +5,85 @@ import { toast } from 'react-toastify';
 const endpoint = "http://localhost:5070"
 
 const initialState = {
-	usersArrayRedux: [],
-	status: 'idle'
+  usersArrayRedux: [],
+  singleUser: {},
+  status: 'idle'
 };
 
 const userSlice = createSlice({
-	name: 'users',
-	initialState,
-	reducers: {},
-	extraReducers: (builder) => {
-		
-		
-	}
+  name: 'users',
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(addMotoToUserProfileAsync.fulfilled, (state, action) => {
+        state.singleUser = action.payload
+      })
+  }
 });
 
 export default userSlice.reducer;
 
-//! ADD NEW USER(post)
 export const userPost = createAsyncThunk(
-	"user/register",
+  "user/register",
+  async (user) => {
+    const form = new FormData()
 
-	async (user) => {
-		const form = new FormData()
+    form.append("username", user.username);
+    form.append("fullName", user.fullName);
+    form.append("email", user.email);
+    form.append("password", user.password);
+    form.append("drivingExperienceLevel", user.drivingExperienceLevel);
+    form.append("birthDate", user.birthDate);
+    form.append("userAvatar", user.userAvatar);
 
-		form.append("username", user.username);
-		form.append("fullName", user.fullName);
-		form.append("email", user.email);
-		form.append("password", user.password);
-		form.append("drivingExperienceLevel", user.drivingExperienceLevel);
-		form.append("birthDate", user.birthDate);
-		form.append("userAvatar", user.userAvatar);
+    try {
+      const res = await axios.post(`${endpoint}/register`, form, {
+        headers: {
+          "Content-Type": "multipart/form-data"
+        }
+      });
+      console.log(res.data);
+      return res.data;
+    } catch (error) {
+      console.log(error)
+      toast.error('Register error!', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+  }
+);
 
-		try{
-			const res = await axios.post(`${endpoint}/register`, form, {
-				headers: {
-					"Content-Type": "multipart/form-data"
-				}
-			})
-			console.log(res.data);
-			return res.data;
-
-		} catch(error) {
-			console.log(error)
-			toast.error('Register error!', {
-				position: "top-center",
-				autoClose: 5000,
-				hideProgressBar: false,
-				closeOnClick: true,
-				pauseOnHover: true,
-				draggable: true,
-				progress: undefined,
-				theme: "light",
-				});
-		}
+export const addMotoToUserProfileAsync = createAsyncThunk(
+	"user/addMoto",
+	async ({ user, userId }) => { // Modifica qui, passando un oggetto con user e userId
+	  try {
+		const formData = new FormData();
+		formData.append("brand", user.brand);
+		formData.append("model", user.model);
+		formData.append("motoImage", user.motoImage);
+  
+		const res = await axios.patch(`${endpoint}/users/${userId}/addmoto`, formData, {
+		  headers: {
+			"Content-Type": "multipart/form-data"
+		  }
+		});
+  
+		return res.data;
+	  } catch (error) {
+		console.log(error);
+		toast.error('Errore durante l\'aggiunta della moto!', {
+		  // ...
+		});
+		throw error;
+	  }
 	}
-)
+  );
+  

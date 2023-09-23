@@ -8,8 +8,15 @@ import {
 import './profileDropdown.css';
 
 import jwt_decode from 'jwt-decode';
+import { Link } from 'react-router-dom';
+import { useSession } from '../../middlewares/protectedRoutes';
 
 export default function ProfileDropdown() {
+
+
+
+	const session = useSession()
+	console.log(session);
 
 	const token = localStorage.getItem("userLoggedIn")
 	const decodedToken = jwt_decode(token);
@@ -27,7 +34,9 @@ export default function ProfileDropdown() {
 			</MDBDropdownToggle>
 			<MDBDropdownMenu>
 				<MDBDropdownItem link disabled className='bg-tertiary white'>{username} MENU</MDBDropdownItem>
-				<MDBDropdownItem link>info/settings</MDBDropdownItem>
+				<Link to={`/homepage/user/${session.id}`}>
+					<MDBDropdownItem link >info/settings</MDBDropdownItem>
+				</Link>
 				<MDBDropdownItem link>bug report</MDBDropdownItem>
 				<MDBDropdownItem link>Logout</MDBDropdownItem>
 			</MDBDropdownMenu>

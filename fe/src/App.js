@@ -5,6 +5,7 @@ import RegisterForm from './components/registerForm/RegisterForm';
 import ProtectedRoutes from './middlewares/protectedRoutes';
 import Homepage from './pages/Homepage';
 import Success from './pages/Success';
+import ProfileInfo from './components/profileInfo/ProfileInfo';
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
 
         <Route element={<ProtectedRoutes />}>
           <Route path='/homepage' element={<Homepage />} />
-        </Route>
+          <Route path='/homepage/user/:id' element={<ProfileInfo/>}/>
+        </Route> 
       </Routes>
     </Router>
   );
