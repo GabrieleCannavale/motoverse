@@ -77,7 +77,7 @@ function LoginForm() {
   }
 
   return (
-    <>
+    <div className='all-body'>
 
       <MDBContainer fluid className='p-4'>
 
@@ -85,17 +85,10 @@ function LoginForm() {
 
           <MDBCol md='6' className='text-center text-md-start d-flex flex-column justify-content-center'>
 
-            <h1 className="my-5 display-3 fw-bold ls-tight px-3">
-              motoverSe.it <br />
-              <span className="text-danger">inserisci slogan qui</span>
-            </h1>
 
-            <p className='px-3' style={{ color: 'hsl(217, 10%, 50.8%)' }}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Eveniet, itaque accusantium odio, soluta, corrupti aliquam
-              quibusdam tempora at cupiditate quis eum maiores libero
-              veritatis? Dicta facilis sint aliquid ipsum atque?
-            </p>
+            <img src="https://i.ibb.co/7gdKN3v/mtverse.jpg" alt="mtverse" border="0" />
+
+            
 
           </MDBCol>
 
@@ -104,9 +97,7 @@ function LoginForm() {
             <MDBCard className='py-4 m-5'>
               <MDBCardBody className='p-5'>
 
-                <MDBRow className='text-center'>
-                  <h3>LOGIN!</h3>
-                </MDBRow>
+                
 
                 <MDBInput
                   wrapperClass='mb-4'
@@ -154,7 +145,7 @@ function LoginForm() {
         </MDBRow>
 
       </MDBContainer>
-    </>
+    </div>
   );
 }
 

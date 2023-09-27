@@ -19,6 +19,9 @@ const userSlice = createSlice({
       .addCase(addMotoToUserProfileAsync.fulfilled, (state, action) => {
         state.singleUser = action.payload
       })
+      .addCase(getSingleUser.fulfilled, (state, action) => {
+        state.singleUser = action.payload
+      })
   }
 });
 
@@ -80,10 +83,20 @@ export const addMotoToUserProfileAsync = createAsyncThunk(
 	  } catch (error) {
 		console.log(error);
 		toast.error('Errore durante l\'aggiunta della moto!', {
-		  // ...
 		});
 		throw error;
 	  }
 	}
   );
+  
+  
+  export const getSingleUser = createAsyncThunk(
+    'users/getSingleUserById',
+    async (userId) => {
+      const res = await axios.get(`${endpoint}/users/${userId}`);
+      console.log(res.data)
+      return res.data.userById;
+    }
+  );
+
   
