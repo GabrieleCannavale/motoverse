@@ -7,6 +7,7 @@ import {
   MDBCard,
   MDBCardBody,
   MDBInput,
+  MDBCardTitle,
 }
   from 'mdb-react-ui-kit';
 
@@ -33,7 +34,7 @@ function LoginForm() {
       const res = await axios.post(`${endpoint}/login`, loginFormData);
       if (res.data.token) {
         localStorage.setItem("userLoggedIn", JSON.stringify(res.data.token));
-        
+
         toast.success('Login Success!', {
           position: "top-center",
           autoClose: 1200,
@@ -43,7 +44,7 @@ function LoginForm() {
           draggable: true,
           progress: undefined,
           theme: "light",
-          });
+        });
 
         setTimeout(() => {
           navigate('/homepage')
@@ -61,7 +62,7 @@ function LoginForm() {
         draggable: true,
         progress: undefined,
         theme: "colored",
-        });
+      });
     }
 
   };
@@ -86,18 +87,22 @@ function LoginForm() {
           <MDBCol md='6' className='text-center text-md-start d-flex flex-column justify-content-center'>
 
 
-            <img src="https://i.ibb.co/7gdKN3v/mtverse.jpg" alt="mtverse" border="0" />
+            <img src="https://i.postimg.cc/9QVHNRxB/motoverse-FINAL.png" alt="mtverse" border="0" />
 
-            
+
 
           </MDBCol>
 
           <MDBCol md='6'>
 
             <MDBCard className='py-4 m-5'>
-              <MDBCardBody className='p-5'>
+              <MDBCardBody className='mt-5 p-5'>
 
-                
+
+                <h1 className='text-center mb-3'>
+                  JOIN THE REVOLUTION!
+                </h1>
+
 
                 <MDBInput
                   wrapperClass='mb-4'
@@ -109,7 +114,7 @@ function LoginForm() {
                   wrapperClass='mb-4'
                   label='Password'
                   type='password'
-                  onChange={(e) => setLoginFormData({ ...loginFormData, password: e.target.value })} 
+                  onChange={(e) => setLoginFormData({ ...loginFormData, password: e.target.value })}
                 />
 
 

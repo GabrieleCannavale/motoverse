@@ -18,6 +18,7 @@ function App() {
         <Route element={<ProtectedRoutes />}>
           <Route path='/homepage' element={<Homepage />} />
           <Route path='/homepage/user/:id' element={<ProfileInfo/>}/>
+          
         </Route> 
       </Routes>
     </Router>

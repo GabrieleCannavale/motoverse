@@ -9,6 +9,7 @@ import {
   MDBRow,
   MDBTypography,
 } from "mdb-react-ui-kit";
+import {GiConfirmed} from 'react-icons/gi';
 import './commentStyles.css'
 
 export default function CommentSection({ comment }) {
@@ -39,21 +40,18 @@ export default function CommentSection({ comment }) {
                           {comment.content}
                         </span>
                       </MDBTypography>
-                      <p className="mb-0">2 days ago</p>
+                      <MDBTypography className="mb-0">
+                        {comment.match && (
+                          <GiConfirmed />
+                        )}
+                      </MDBTypography>
                     </div>
                     <div className="d-flex justify-content-between align-items-center">
                       <p className="small mb-0">
                         <a href="#!" className="link-grey">
                           Remove
-                        </a>{" "}
-                        •
-                        <a href="#!" className="link-grey">
-                          Reply
-                        </a>{" "}
-                        •
-                        <a href="#!" className="link-grey">
-                          Translate
                         </a>
+
                       </p>
                       <div className="comment-icons">
                         <MDBIcon fas icon="star text-warning me-2" />

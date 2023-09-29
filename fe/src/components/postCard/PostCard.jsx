@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Card, CardContent, CardMedia, Typography, Tooltip } from "@mui/material";
+import { Typography, Tooltip } from "@mui/material";
+import { Card, Col } from 'react-bootstrap';
 import Avatar from "@mui/material/Avatar";
 import { MDBBtn } from 'mdb-react-ui-kit';
 import { FaRoad } from 'react-icons/fa';
@@ -19,11 +20,74 @@ const PostCard = ({ post }) => {
   const handleCommentsClick = () => {
     setIsCommentsOpen(prevState => !prevState);
     dispatch(getCommentsByPost(post._id));
-    
+
   };
 
   return (
-    <div className="my-4 mx-2 post-card-container">
+    
+    <Card style={{backgroundColor:'#FFE6C7'}}>
+      <Card.Header>
+        <Tooltip className="tool-avatar d-flex align-items-baseline" title={post.user.username}>
+          <Avatar
+            alt={post.user.username}
+            src={post.user.userAvatar}
+            className="post-card__author-avatar"
+          />
+           <Card.Title className='mx-3'>{post.title}</Card.Title>
+        </Tooltip>
+      </Card.Header>
+      <Card.Img variant="top" src={post.image} />
+      <Card.Body>
+        
+        <Card.Text>
+          {post.content}
+        </Card.Text>
+      </Card.Body>
+      <Card.Footer>
+        <Typography className="my-1" variant="body2" color="text.secondary">
+          {post.date}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Da: {post.startingPoint}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          A: {post.endingPoint}
+        </Typography>
+
+        <Typography className="space-between" variant="body2" color="text.secondary">
+          <FaRoad />: {post.kilometers + "km"} - <RiTimerLine />: {post.travelTime + "ore"}
+        </Typography>
+        <Typography className="experience-level p-1 my-2 mx-0 px-0 text-center">
+          driver:{post.user.drivingExperienceLevel}
+        </Typography>
+        <Typography type="button" className="btn btn-light" ripple="dark" onClick={handleCommentsClick}>Comments</Typography>
+
+      </Card.Footer>
+      {isCommentsOpen && (
+        <div>
+          <AddCommentSection post={post} />
+        </div>
+      )}
+
+      {isCommentsOpen && commentsArrayByPost && commentsArrayByPost.map((comment) => (
+        <CommentSection
+          key={nanoid()}
+          comment={comment}
+        />
+      ))}
+    </Card>
+
+  );
+};
+
+export default PostCard;
+
+
+
+
+
+
+{/* <div className="my-4 mx-2 post-card-container">
       <Card className="post-card d-flex flex-row">
         <CardMedia
           className="post-card__image"
@@ -49,26 +113,26 @@ const PostCard = ({ post }) => {
               {post.content}
             </Typography>
           </div>
-          </CardContent>
-          <CardContent className="post-card__content info__content bg-warning mt-auto">
-            <Typography className="my-1" variant="body2" color="text.secondary">
-              {post.date}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Da: {post.startingPoint}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              A: {post.endingPoint}
-            </Typography>
+        </CardContent>
+        <CardContent className="post-card__content info__content bg-warning mt-auto">
+          <Typography className="my-1" variant="body2" color="text.secondary">
+            {post.date}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            Da: {post.startingPoint}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            A: {post.endingPoint}
+          </Typography>
 
-            <Typography className="space-between" variant="body2" color="text.secondary">
-              <FaRoad />: {post.kilometers + "km"} - <RiTimerLine />: {post.travelTime + "ore"}
-            </Typography>
-            <Typography className="experience-level p-1 my-2 mx-0 px-0 text-center">
-              {post.user.drivingExperienceLevel}
-            </Typography>
-            <MDBBtn type="button" className="btn btn-light" ripple="dark" onClick={handleCommentsClick}>Comments</MDBBtn>
-          
+          <Typography className="space-between" variant="body2" color="text.secondary">
+            <FaRoad />: {post.kilometers + "km"} - <RiTimerLine />: {post.travelTime + "ore"}
+          </Typography>
+          <Typography className="experience-level p-1 my-2 mx-0 px-0 text-center">
+            {post.user.drivingExperienceLevel}
+          </Typography>
+          <MDBBtn type="button" className="btn btn-light" ripple="dark" onClick={handleCommentsClick}>Comments</MDBBtn>
+
         </CardContent>
       </Card>
 
@@ -79,13 +143,9 @@ const PostCard = ({ post }) => {
       )}
 
       {isCommentsOpen && commentsArrayByPost && commentsArrayByPost.map((comment) => (
-        <CommentSection 
+        <CommentSection
           key={nanoid()}
           comment={comment}
         />
       ))}
-    </div>
-  );
-};
-
-export default PostCard;
+    </div> */}

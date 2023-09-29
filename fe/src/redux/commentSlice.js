@@ -28,7 +28,7 @@ export default commentSlice.reducer;
 export const getCommentsByPost = createAsyncThunk(
 	'comments/getCommentsByPost',
 	async (postId) => {
-		const res = await axios.get(`${endpoint}/comments/post/${postId}`);
+		const res = await axios.get(`${process.env.REACT_APP_SERVERBASE_URL}/comments/post/${postId}`);
 		console.log(res.data.comments)
 		return res.data.comments;
 	}
@@ -42,7 +42,7 @@ export const createComment = createAsyncThunk(
 		form.append("content", newComment.content);
 		form.append("match", newComment.match);
 		form.append("postId", newComment.postId);
-		const res = await axios.post(`${endpoint}/comments/create`, newComment);
+		const res = await axios.post(`${process.env.REACT_APP_SERVERBASE_URL}/comments/create`, newComment);
 		console.log(res.data);
 		return res.data.payload
 	}

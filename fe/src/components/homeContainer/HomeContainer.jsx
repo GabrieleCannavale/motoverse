@@ -5,10 +5,10 @@ import './homeContainer.css'
 
 const HomeContainer = () => {
   return (
-    <div className='d-flex flex-md-row bg-secondary'>
+    <div className='d-flex flex-md-row bg-secondary main-body'>
 
 
-      <div className='order-md-1 order-2 col-md-8 col-sm-12'>
+      <div className='order-md-1 order-2 col-md-8 col-sm-12 main-body'>
         <PostContainer />
       </div>
 

@@ -1,8 +1,13 @@
 .map-cont {
 	position: -webkit-sticky !important;
 	position:sticky !important;
-	top: 110px !important;
+	top: 100px !important;
 	height: 100%;
 	width: 100%;
 	background-color: #454545 !important;
+	overflow-y: auto;
+}
+
+.main-body{
+	background-color: #454545;
 }

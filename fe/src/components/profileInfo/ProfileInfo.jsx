@@ -69,7 +69,7 @@ export default function ProfileInfo() {
   return (
     <>
       <NavigationBar />
-      <div className="gradient-custom-2 my-5" style={{ backgroundColor: '#9de2ff' }}>
+      <div className="gradient-custom-2 my-5" style={{ backgroundColor:'#454545' }}>
         <MDBContainer className="py-5 h-100">
           <MDBRow className="justify-content-center align-items-center h-100">
             <MDBCol lg="9" xl="7">

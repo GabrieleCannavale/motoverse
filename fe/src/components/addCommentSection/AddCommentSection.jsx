@@ -2,19 +2,19 @@ import React, { useState } from "react";
 import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { useSession } from '../../middlewares/protectedRoutes'
-import { createComment } from "../../redux/commentSlice";
+import { createComment, getCommentsByPost } from "../../redux/commentSlice";
 import '../commentSection/commentStyles.css'
 
 export default function AddCommentSection({ post }) {
   const session = useSession();
-  
+
   const dispatch = useDispatch();
   const [checked, setChecked] = useState(false);
   const [content, setContent] = useState("");
 
   const submitComment = (e) => {
     e.preventDefault();
-    
+
     const commentData = {
       user: session.id,
       content: content,
@@ -23,6 +23,9 @@ export default function AddCommentSection({ post }) {
     }
 
     dispatch(createComment(commentData));
+    setContent(""); // Azzera il contenuto dell'input
+    setChecked(false); // Resetta il checkbox
+    dispatch(getCommentsByPost(post._id))
   }
 
   return (
@@ -45,7 +48,7 @@ export default function AddCommentSection({ post }) {
                       rows={4}
                       value={content}
                       onChange={(e) => setContent(e.target.value)}
-                      placeholder="What is your view?"
+                      placeholder="Lascia un commento"
                     />
                   </Form.Group>
                   <Form.Group controlId="checkbox">

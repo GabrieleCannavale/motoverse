@@ -73,7 +73,7 @@ export const addMotoToUserProfileAsync = createAsyncThunk(
 		formData.append("model", user.model);
 		formData.append("motoImage", user.motoImage);
   
-		const res = await axios.patch(`${endpoint}/users/${userId}/addmoto`, formData, {
+		const res = await axios.patch(`${process.env.REACT_APP_SERVERBASE_URL}/users/${userId}/addmoto`, formData, {
 		  headers: {
 			"Content-Type": "multipart/form-data"
 		  }
@@ -93,7 +93,7 @@ export const addMotoToUserProfileAsync = createAsyncThunk(
   export const getSingleUser = createAsyncThunk(
     'users/getSingleUserById',
     async (userId) => {
-      const res = await axios.get(`${endpoint}/users/${userId}`);
+      const res = await axios.get(`${process.env.REACT_APP_SERVERBASE_URL}/users/${userId}`);
       console.log(res.data)
       return res.data.userById;
     }

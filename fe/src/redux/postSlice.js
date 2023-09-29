@@ -14,7 +14,13 @@ const initialState = {
 const postSlice = createSlice({
 	name: "posts",
 	initialState,
-	reduers: {},
+	reducers: {
+		filterPosts: (state, action) => {
+			state.postsArrayRedux = state.postsArrayRedux.filter((post) => {
+				return post.province.toLowerCase().includes(action.payload.toLowerCase());
+			})
+		}
+	},
 	extraReducers: (builder) => {
 		builder
 			//*GET CASES
@@ -24,7 +30,7 @@ const postSlice = createSlice({
 	}
 });
 
-
+export const { filterPosts } = postSlice.actions;	
 export default postSlice.reducer
 
 
