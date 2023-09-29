@@ -66,7 +66,7 @@ export const userPost = createAsyncThunk(
 
 export const addMotoToUserProfileAsync = createAsyncThunk(
 	"user/addMoto",
-	async ({ user, userId }) => { // Modifica qui, passando un oggetto con user e userId
+	async ({ user, userId }) => {
 	  try {
 		const formData = new FormData();
 		formData.append("brand", user.brand);

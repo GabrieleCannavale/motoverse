@@ -52,7 +52,7 @@ export const postPost = createAsyncThunk(
 		form.append("date", postPayload.date)
 
 		try {
-			const res = await axios.post(`${endpoint}/posts/create`, form, {
+			const res = await axios.post(`${process.env.REACT_APP_SERVERBASE_URL}/posts/create`, form, {
 				headers: {
 					"Content-Type": "multipart/form-data"
 				}
@@ -80,7 +80,7 @@ export const getPosts = createAsyncThunk(
 	'post/GET',
 	async () => {
 		try {
-			const res = await axios.get(`${endpoint}/posts`);
+			const res = await axios.get(`${process.env.REACT_APP_SERVERBASE_URL}/posts`);
 			if (!res.ok) {
 				console.log(`HTTP error! status: ${res.status}`);
 			};
@@ -97,7 +97,7 @@ export const getPostById = createAsyncThunk(
 	"posts/SinglePost",
 	async (id) => {
 		try {
-			const res = await axios.get(`${endpoint}/posts/${id}`);
+			const res = await axios.get(`${process.env.REACT_APP_SERVERBASE_URL}/posts/${id}`);
 			console.log(res.data)
 			return res.data
 		} catch (error) {
