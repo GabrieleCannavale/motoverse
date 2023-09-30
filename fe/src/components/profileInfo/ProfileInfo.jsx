@@ -26,6 +26,7 @@ import { addMotoToUserProfileAsync, getSingleUser } from '../../redux/userSlice'
 import { nanoid } from 'nanoid';
 import MotoCard from '../motoCard/MotoCard';
 import Footer from '../footer/Footer';
+import { FaPencilAlt } from 'react-icons/fa';
 
 export default function ProfileInfo() {
   const { id } = useParams();
@@ -54,7 +55,7 @@ export default function ProfileInfo() {
       motoImage: motoImage.current.files[0]
     }
 
-    await dispatch(addMotoToUserProfileAsync({ user: motoData, userId: id }));
+    await dispatch(addMotoToUserProfileAsync({ user: motoData, userId: id })).then(() => toggleShow());
   }
 
   const [isOpen, setIsOpen] = useState(false);
@@ -63,7 +64,7 @@ export default function ProfileInfo() {
   useEffect(() => {
     dispatch(getSingleUser(id));
     console.log(singleUser)
-  }, [dispatch, id]);
+  }, [dispatch, id, singleUser]);
 
 
 
@@ -101,9 +102,16 @@ export default function ProfileInfo() {
                 </div>
                 <MDBCardBody className="text-black p-4">
                   <div className="mb-5">
-                    <p className="lead fw-normal mb-1">Su di me:</p>
+                    <div className='container d-flex justify-content-between align-items-baseline mb-1'>
+                      <p className="lead fw-normal mb-1">Su di me: </p>
+                      <MDBBtn style={{ backgroundColor: '#FF6000' }} className='py-1 align-items-center'>
+                         <FaPencilAlt />
+                      </MDBBtn>
+                     
+                    </div>
+
                     <div className="p-4" style={{ backgroundColor: '#f8f9fa' }}>
-                      <MDBCardText className="font-italic mb-0">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil, provident. Aut sapiente quam iste maiores, quis consequuntur, cumque natus dolorum similique aliquid, ab velit rerum mollitia labore quibusdam non dicta.{session.bio}</MDBCardText>
+                      <MDBCardText className="font-italic mb-0">{session.bio}</MDBCardText>
                     </div>
                   </div>
                   <div className="d-flex justify-content-between align-items-baseline mb-4">

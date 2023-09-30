@@ -3,7 +3,7 @@ import jwt_decode from 'jwt-decode';
 import { useDispatch } from 'react-redux';
 import { Form, Button, Row, Col, Modal } from "react-bootstrap";
 import { PiSignpostBold } from 'react-icons/pi';
-import { postPost } from '../../redux/postSlice';
+import { getPosts, postPost } from '../../redux/postSlice';
 
 const AddPostModal = () => {
 	const dispatch = useDispatch();
@@ -48,7 +48,7 @@ const AddPostModal = () => {
 				travelTime: travelTime.current.value,
 				date: date.current.value
 			}
-			dispatch(postPost(postData)).then(() => setOptSmModal(false))
+			dispatch(postPost(postData)).then(() => setOptSmModal(false)).then(() => getPosts())
 		}
 
 

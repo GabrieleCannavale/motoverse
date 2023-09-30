@@ -8,15 +8,21 @@ import {
 import './profileDropdown.css';
 
 import jwt_decode from 'jwt-decode';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useSession } from '../../middlewares/protectedRoutes';
 
 export default function ProfileDropdown() {
 
-
-
-	const session = useSession()
+	const navigate = useNavigate();
+	const session = useSession();
 	console.log(session);
+
+
+	const handleLogout = () => {
+		localStorage.removeItem("userLoggedIn");
+		// Puoi anche fare altre azioni di logout qui, come cancellare lo stato dell'utente o fare altre pulizie.
+		navigate("/"); 
+	};
 
 	const token = localStorage.getItem("userLoggedIn")
 	const decodedToken = jwt_decode(token);
@@ -38,7 +44,7 @@ export default function ProfileDropdown() {
 					<MDBDropdownItem link >info/settings</MDBDropdownItem>
 				</Link>
 				<MDBDropdownItem link>bug report</MDBDropdownItem>
-				<MDBDropdownItem link>Logout</MDBDropdownItem>
+				<MDBDropdownItem link onClick={handleLogout}>Logout</MDBDropdownItem>
 			</MDBDropdownMenu>
 		</MDBDropdown>
 	);

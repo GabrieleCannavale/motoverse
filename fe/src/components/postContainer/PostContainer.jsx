@@ -52,7 +52,7 @@ function PostContainer() {
 						</Form>
 					</Col>
 				</Row>
-				<Row className='g-4 no-gutters mt-2 row-cols-2'>
+				<Row className='g-4 mt-2 row-cols-2'>
 					{postsArrayRedux && postsArrayRedux.map((post) => (
 						<Col key={nanoid()} md={6} className="mb-4">
 							<PostCard post={post} />
