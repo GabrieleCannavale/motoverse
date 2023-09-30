@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 export default function NavigationBar() {
   return (
     <>
-      <Navbar expand="lg" style={{backgroundColor:'#FFA559'}}>
+      <Navbar className='fixed-top' expand="lg" style={{backgroundColor:'#FFA559'}}>
       <Container fluid>
         <Navbar.Brand href="#" >
           <Link to={'/homepage'}> 

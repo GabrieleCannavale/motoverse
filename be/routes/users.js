@@ -171,7 +171,7 @@ user.patch('/users/:id/addmoto', MotoImage.single("motoImage"), async (req, res)
   });
   
   //! DELETE MOTO BY ID (Rimozione di una moto dal profilo dell'utente)
-  user.patch('/users/:userId/deletemoto/:motoId', async (req, res) => {
+  user.delete('/users/:userId/deletemoto/:motoId', async (req, res) => {
 	const { userId, motoId } = req.params;
   
 	try {

@@ -80,11 +80,11 @@ function LoginForm() {
   return (
     <div className='all-body'>
 
-      <MDBContainer fluid className='p-4'>
+      <MDBContainer fluid className='p-4 '>
 
-        <MDBRow>
+        <MDBRow className='align-items-center justify-content-center'>
 
-          <MDBCol md='6' className='text-center text-md-start d-flex flex-column justify-content-center'>
+          <MDBCol md='6' className='d-flex align-items-baseline'>
 
 
             <img src="https://i.postimg.cc/9QVHNRxB/motoverse-FINAL.png" alt="mtverse" border="0" />
@@ -93,16 +93,10 @@ function LoginForm() {
 
           </MDBCol>
 
-          <MDBCol md='6'>
+          <MDBCol md='6' className='align-items-center'>
 
             <MDBCard className='py-4 m-5'>
-              <MDBCardBody className='mt-5 p-5'>
-
-
-                <h1 className='text-center mb-3'>
-                  JOIN THE REVOLUTION!
-                </h1>
-
+              <MDBCardBody className=''>
 
                 <MDBInput
                   wrapperClass='mb-4'

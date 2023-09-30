@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Row } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 import {
   MDBCol,
   MDBContainer,
@@ -25,6 +25,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addMotoToUserProfileAsync, getSingleUser } from '../../redux/userSlice';
 import { nanoid } from 'nanoid';
 import MotoCard from '../motoCard/MotoCard';
+import Footer from '../footer/Footer';
 
 export default function ProfileInfo() {
   const { id } = useParams();
@@ -69,7 +70,7 @@ export default function ProfileInfo() {
   return (
     <>
       <NavigationBar />
-      <div className="gradient-custom-2 my-5" style={{ backgroundColor:'#454545' }}>
+      <div className="gradient-custom-2 my-5" style={{ backgroundColor: '#454545' }}>
         <MDBContainer className="py-5 h-100">
           <MDBRow className="justify-content-center align-items-center h-100">
             <MDBCol lg="9" xl="7">
@@ -89,8 +90,8 @@ export default function ProfileInfo() {
                 <div className="p-4 text-black" style={{ backgroundColor: '#f8f9fa' }}>
                   <div className="d-flex justify-content-end text-center py-1">
                     <div>
-                      <MDBCardText className="mb-1 h5">253</MDBCardText>
-                      <MDBCardText className="small text-muted mb-0">Posts</MDBCardText>
+                      <MDBCardText className="mb-1 h5">{session.birthDate}</MDBCardText>
+                      <MDBCardText className="small text-muted mb-0 me-1">Data di nascita</MDBCardText>
                     </div>
                     <div className="ms-3">
                       <MDBCardText className="mb-1 h5">{session.drivingExperienceLevel}</MDBCardText>
@@ -107,17 +108,20 @@ export default function ProfileInfo() {
                   </div>
                   <div className="d-flex justify-content-between align-items-baseline mb-4">
                     <MDBCardText className="lead fw-normal mb-0">GARAGE:</MDBCardText>
-                    <MDBBtn onClick={toggleShow}>AGGIUNGI MOTO</MDBBtn>
+                    <MDBBtn style={{ backgroundColor: '#FF6000' }} onClick={toggleShow}>AGGIUNGI MOTO</MDBBtn>
                   </div>
-                  <Row>
-                    {singleUser && singleUser.motos && singleUser.motos.map((moto) => (
-                    <MotoCard
-                      key={nanoid()}
-                      moto={moto}
-                    />
-                  ))}
-                  </Row>
-                  
+                  <Container>
+                    <Row className='align-items-center justify-content-center no-gutters g-2'>
+                      {singleUser && singleUser.motos && singleUser.motos.map((moto) => (
+                        <MotoCard
+                          key={nanoid()}
+                          moto={moto}
+                          userId={id}
+                        />
+                      ))}
+
+                    </Row>
+                  </Container>
                 </MDBCardBody>
               </MDBCard>
             </MDBCol>
@@ -157,6 +161,7 @@ export default function ProfileInfo() {
           </MDBModalContent>
         </MDBModalDialog>
       </MDBModal>
+      <Footer />
     </>
   );
 }

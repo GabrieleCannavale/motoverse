@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
-const endpoint = "http://localhost:5070"
+
 
 const initialState = {
   usersArrayRedux: [],
@@ -20,6 +20,9 @@ const userSlice = createSlice({
         state.singleUser = action.payload
       })
       .addCase(getSingleUser.fulfilled, (state, action) => {
+        state.singleUser = action.payload
+      })
+      .addCase(deleteMotoFromUserProfileAsync.fulfilled, (state, action) => {
         state.singleUser = action.payload
       })
   }
@@ -41,7 +44,7 @@ export const userPost = createAsyncThunk(
     form.append("userAvatar", user.userAvatar);
 
     try {
-      const res = await axios.post(`${endpoint}/register`, form, {
+      const res = await axios.post(`${process.env.REACT_APP_SERVERBASE_URL}/register`, form, {
         headers: {
           "Content-Type": "multipart/form-data"
         }
@@ -87,6 +90,21 @@ export const addMotoToUserProfileAsync = createAsyncThunk(
 		throw error;
 	  }
 	}
+  );
+
+  export const deleteMotoFromUserProfileAsync = createAsyncThunk(
+    "user/deleteMoto",
+    async ({ userId, motoId }) => {
+      try {
+        const res = await axios.delete(`${process.env.REACT_APP_SERVERBASE_URL}/users/${userId}/deletemoto/${motoId}`);
+        return res.data;
+      } catch (error) {
+        console.log(error);
+        toast.error('Errore durante l\'eliminazione della moto!', {
+        });
+        throw error;
+      }
+    }
   );
   
   

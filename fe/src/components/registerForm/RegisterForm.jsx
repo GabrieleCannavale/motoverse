@@ -69,22 +69,12 @@ function RegisterForm() {
 
 			<MDBContainer fluid className='p-4'>
 
-				<MDBRow>
+				<MDBRow className='align-items-center justify-content-center'>
 
 					<MDBCol md='6' className='text-center text-md-start d-flex flex-column justify-content-center'>
 
-						<h1 className="my-5 display-3 fw-bold ls-tight px-3">
-							motoverSe.it <br />
-							<span className="text-danger">inserisci slogan qui</span>
-						</h1>
-
-						<p className='px-3' style={{ color: 'hsl(217, 10%, 50.8%)' }}>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit.
-							Eveniet, itaque accusantium odio, soluta, corrupti aliquam
-							quibusdam tempora at cupiditate quis eum maiores libero
-							veritatis? Dicta facilis sint aliquid ipsum atque?
-						</p>
-
+					<img src="https://i.postimg.cc/9QVHNRxB/motoverse-FINAL.png" alt="mtverse" border="0" />
+					
 					</MDBCol>
 
 					<MDBCol md='6'>
