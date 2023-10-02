@@ -65,7 +65,7 @@ function RegisterForm() {
 
 
 	return (
-		<>
+		<div style={{backgroundColor:"#FFA559"}}>
 
 			<MDBContainer fluid className='p-4'>
 
@@ -124,7 +124,7 @@ function RegisterForm() {
 				</MDBRow>
 
 			</MDBContainer>
-		</>
+		</div>
 	);
 }
 

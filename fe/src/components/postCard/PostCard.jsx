@@ -25,7 +25,7 @@ const PostCard = ({ post }) => {
 
   return (
     
-    <Card style={{backgroundColor:'#FFE6C7'}}>
+    <Card className='post-card' style={{backgroundColor:'#FFE6C7'}}>
       <Card.Header style={{height:"5rem"}}>
         <Tooltip className="tool-avatar d-flex align-items-baseline" title={post.user.username}>
           <Avatar
