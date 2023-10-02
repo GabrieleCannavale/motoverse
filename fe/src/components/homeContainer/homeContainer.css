@@ -4,10 +4,11 @@
 	top: 100px !important;
 	height: 100%;
 	width: 100%;
-	background-color: #454545 !important;
+	background-color: #E8740E!important;
 	overflow-y: auto;
 }
 
 .main-body{
-	background-color: #454545;
+background: rgb(28,24,20);
+background: linear-gradient(0deg, rgba(28,24,20,1) 0%, rgba(235,118,14,1) 100%);
 }

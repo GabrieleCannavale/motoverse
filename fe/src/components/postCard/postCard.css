@@ -31,13 +31,6 @@
   width: 53%
 }
 
-.info__content {
-  width: 20%;
-  display: flex;
-  justify-content: stretch;
-  flex-direction: column;
-}
-
 .experience-level {
   background-color: #FF6000;
   color: white;

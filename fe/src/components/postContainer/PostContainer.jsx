@@ -35,7 +35,7 @@ function PostContainer() {
 
 	return (
 		<>
-			<MDBContainer style={{ marginTop: '6rem' }}>
+			<MDBContainer style={{ marginTop: '6rem'}}>
 				<Row className="align-items-center justify-content-evenly">
 					<Col md={4}>
 						<AddPostModal />

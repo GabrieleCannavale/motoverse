@@ -56,7 +56,7 @@ const AddPostModal = () => {
 
 	return (
 		<>
-			<Button style={{backgroundColor:'#FF6000'}} onClick={toggleShow}>Aggiungi post</Button>
+			<Button className='btn btn-dark' variant='dark' onClick={toggleShow}>Aggiungi post</Button>
 			<Modal show={optSmModal} onHide={toggleShow}>
 				<Modal.Header closeButton>
 					<Modal.Title>Aggiungi un post alla bacheca!</Modal.Title>

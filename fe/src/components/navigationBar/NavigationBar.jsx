@@ -13,11 +13,11 @@ import { Link } from 'react-router-dom';
 export default function NavigationBar() {
   return (
     <>
-      <Navbar className='fixed-top' expand="lg" style={{backgroundColor:'#FFA559'}}>
+      <Navbar className='fixed-top border border-bottom-3' style={{backgroundColor:'#E8740E'}} expand="lg">
       <Container fluid>
         <Navbar.Brand href="#" >
           <Link to={'/homepage'}> 
-            <Avatar src="https://i.postimg.cc/9QVHNRxB/motoverse-FINAL.png" style={{width:'6em', height:'4em'}} alt="logo" />
+            <Avatar className='rounded-circle bg-white' src="https://i.postimg.cc/9QVHNRxB/motoverse-FINAL.png" style={{width:'6em', height:'4em'}} alt="logo" />
           </Link>
          
         </Navbar.Brand>
@@ -28,9 +28,9 @@ export default function NavigationBar() {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <MDBNavbarLink className='ms-4 me-4'> chi siamo </MDBNavbarLink>
-            <MDBNavbarLink className='me-4'> perchè motoverSe </MDBNavbarLink>
-            <MDBNavbarLink> contattaci! </MDBNavbarLink>
+            <MDBNavbarLink className='ms-4 me-4 text-dark'> chi siamo </MDBNavbarLink>
+            <MDBNavbarLink className='me-4 text-dark'> perchè motoverSe </MDBNavbarLink>
+            <MDBNavbarLink className='text-dark'> contattaci! </MDBNavbarLink>
             
           </Nav>
           <ProfileDropdown />

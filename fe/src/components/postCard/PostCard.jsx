@@ -25,42 +25,48 @@ const PostCard = ({ post }) => {
 
   return (
     
-    <Card className='post-card' style={{backgroundColor:'#FFE6C7'}}>
+    <Card className='post-card border border-4 border-dark' style={{backgroundColor:'#FFE6C7'}}>
       <Card.Header style={{height:"5rem"}}>
         <Tooltip className="tool-avatar d-flex align-items-baseline" title={post.user.username}>
           <Avatar
             alt={post.user.username}
             src={post.user.userAvatar}
-            className="post-card__author-avatar"
+            className="post-card__author-avatar border border-2 border-dark"
           />
-           <Card.Title className='mx-3'>{post.title}</Card.Title>
+           <Card.Title className='mx-3 fw-2'>{post.title}</Card.Title>
         </Tooltip>
       </Card.Header>
       <Card.Img variant="top" src={post.image}  style={{height:"10rem", overflow:'hidden'}}/>
-      <Card.Body style={{height:'13rem'}} >
+      <Card.Body style={{height:'8rem', color:'#FFE6C7'}} className='bg-dark no-border rounded-0'>
         
         <Card.Text>
           {post.content}
         </Card.Text>
       </Card.Body>
-      <Card.Footer>
-        <Typography className="my-1" variant="body2" color="text.secondary">
+      <Card.Footer className='d-flex justify-content-between'>
+        <div className='border border-2 rounded-3 p-1 border-dark bg-dark'>
+           <Typography className="my-1" variant="body2"color={'white'}  >
           {post.date}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography color={'white'} variant="body2">
           Da: {post.startingPoint}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="body2" color={'white'} >
           A: {post.endingPoint}
         </Typography>
 
-        <Typography className="space-between" variant="body2" color="text.secondary">
+        <Typography className="space-between" variant="body2" color={'white'}  >
           <FaRoad />: {post.kilometers + "km"} - <RiTimerLine />: {post.travelTime + "ore"}
         </Typography>
-        <Typography className="experience-level p-1 my-2 mx-0 px-0 text-center">
-          abilità di guida:{'   '} {post.user.drivingExperienceLevel}
+        </div>
+       
+        <div className='d-flex flex-column align-items-end justify-content-between'>
+         <Typography className="experience-level px-3 my-2 text-center rounded-pill">
+         <em>abilità di guida:{'   '} {post.user.drivingExperienceLevel}</em> 
         </Typography>
-        <Typography type="button" className="btn btn-light" ripple="dark" onClick={handleCommentsClick}>Comments</Typography>
+        <Typography type="button" className="btn btn-dark" ripple="light" onClick={handleCommentsClick}>Rispondi</Typography>
+        </div>
+  
 
       </Card.Footer>
       {isCommentsOpen && (
