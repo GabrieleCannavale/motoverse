@@ -27,6 +27,7 @@ import { nanoid } from 'nanoid';
 import MotoCard from '../motoCard/MotoCard';
 import Footer from '../footer/Footer';
 import { FaPencilAlt } from 'react-icons/fa';
+import './profileInfo.css'
 
 export default function ProfileInfo() {
   const { id } = useParams();
@@ -71,7 +72,7 @@ export default function ProfileInfo() {
   return (
     <>
       <NavigationBar />
-      <div className="main-body gradient-custom-2 my-5">
+      <div className="maincol gradient-custom-2 my-5">
         <MDBContainer className="py-5 h-100">
           <MDBRow className="justify-content-center align-items-center h-100">
             <MDBCol lg="9" xl="7">
