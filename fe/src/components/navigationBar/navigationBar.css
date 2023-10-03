@@ -4,8 +4,22 @@
     object-fit: cover;
 }
 
+         
+.navibar{
+    background: -webkit-linear-gradient(to right,#b64347, #df625e);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #b64347, #df625e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    display: block;
+  }
 
-.navibar {
-    background: rgb(33, 19, 4);
-    background: linear-gradient(0deg, rgba(33, 19, 4, 1) 0%, rgba(255, 122, 4, 1) 46%, rgba(71, 40, 11, 1) 100%);
-}
+  .navibar:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+ 

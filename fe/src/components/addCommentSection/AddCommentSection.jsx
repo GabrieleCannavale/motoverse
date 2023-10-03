@@ -34,9 +34,9 @@ export default function AddCommentSection({ post }) {
         <Row className="justify-content-center w-100">
           <Col md="12" lg="10" xl="8" className="w-100">
             <Card className="comment-card">
-              <Card.Body className="p-2 d-flex align-items-center">
+              <Card.Body className="p-2 d-flex">
                 <img
-                  className="comment-avatar"
+                  className="comment-avatar me-2"
                   src={session.userAvatar}
                   alt="avatar"
                 />

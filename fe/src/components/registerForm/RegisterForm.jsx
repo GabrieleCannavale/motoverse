@@ -65,7 +65,7 @@ function RegisterForm() {
 
 
 	return (
-		<div style={{backgroundColor:"#FFA559"}}>
+		<div style={{backgroundColor:"#b31217", height:'100vh'}}>
 
 			<MDBContainer fluid className='p-4'>
 
@@ -110,7 +110,7 @@ function RegisterForm() {
 									<MDBBtn className='mt-4 w-100 mb-4 bg-danger' onClick={handleSubmit} size='md'> Register <FaMotorcycle /> </MDBBtn>
 
 									<div className='d-flex justify-content-center mb-4'>
-										Already have an account?   <a onClick={goToLogin}>go to Login</a>
+										Already have an account?   <a style={{cursor:'pointer'}} onClick={goToLogin}>go to Login</a>
 									</div>
 
 								</Form>

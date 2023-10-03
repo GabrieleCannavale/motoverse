@@ -81,7 +81,7 @@ export default function ProfileInfo() {
                   <div className="ms-4 mt-5 d-flex flex-column" style={{ width: '150px' }}>
                     <MDBCardImage src={session.userAvatar} alt="user profile image" className="mt-4 mb-2 img-thumbnail" fluid style={{ width: '150px', zIndex: '1' }} />
                     <MDBBtn outline color="dark" style={{ height: '36px', overflow: 'visible' }}>
-                      Modifica
+                      MODIFICA
                     </MDBBtn>
                   </div>
                   <div className="ms-3" style={{ marginTop: '130px' }}>
@@ -104,8 +104,8 @@ export default function ProfileInfo() {
                 <MDBCardBody className="text-black p-4">
                   <div className="mb-5">
                     <div className='container d-flex justify-content-between align-items-baseline mb-1'>
-                      <p className="lead fw-normal mb-1">Su di me: </p>
-                      <MDBBtn style={{ backgroundColor: '#FF6000' }} className='py-1 align-items-center'>
+                      <p className="lead fw-bold mb-1">Su di me: </p>
+                      <MDBBtn style={{ backgroundColor: '#FF6000' }} className='btn-grad'>
                          <FaPencilAlt />
                       </MDBBtn>
                      
@@ -116,8 +116,8 @@ export default function ProfileInfo() {
                     </div>
                   </div>
                   <div className="d-flex justify-content-between align-items-baseline mb-4">
-                    <MDBCardText className="lead fw-normal mb-0">GARAGE:</MDBCardText>
-                    <MDBBtn style={{ backgroundColor: '#FF6000' }} onClick={toggleShow}>AGGIUNGI MOTO</MDBBtn>
+                    <MDBCardText className="lead fw-bold mb-0">GARAGE:</MDBCardText>
+                    <MDBBtn className='btn-grad' onClick={toggleShow}>AGGIUNGI MOTO</MDBBtn>
                   </div>
                   <Container>
                     <Row className='align-items-center justify-content-center no-gutters g-2'>

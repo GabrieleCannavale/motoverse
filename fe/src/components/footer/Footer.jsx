@@ -8,7 +8,7 @@ import './footer.css';
 
 export default function Footer() {
 	return (
-		<MDBFooter className='text-center text-white' style={{ backgroundColor: '#FFA559' }}>
+		<MDBFooter className='foooter text-center text-white'>
 			<MDBContainer className='pt-4'>
 				<section className='mb-4 d-flex justify-content-center space-evenly'>
 					<a href='https://www.facebook.com/' target='_blank' rel='noopener noreferrer'><BsFacebook className='icon mx-2' /></a>

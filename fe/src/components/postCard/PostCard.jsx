@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Typography, Tooltip, Hidden } from "@mui/material";
 import { Card, Col } from 'react-bootstrap';
 import Avatar from "@mui/material/Avatar";
-import { MDBBtn } from 'mdb-react-ui-kit';
 import { FaRoad } from 'react-icons/fa';
 import { RiTimerLine } from 'react-icons/ri';
 import { useDispatch, useSelector } from "react-redux";
@@ -25,26 +24,26 @@ const PostCard = ({ post }) => {
 
   return (
     
-    <Card className='post-card border border-4 border-dark' style={{backgroundColor:'#FFE6C7'}}>
+    <Card className='post-card border border-1 border-dark'>
       <Card.Header style={{height:"5rem"}}>
-        <Tooltip className="tool-avatar d-flex align-items-baseline" title={post.user.username}>
+        <Tooltip className="tool-avatar d-flex align-items-baseline bg-white text-dark border rounded-pill" title={post.user.username}>
           <Avatar
             alt={post.user.username}
             src={post.user.userAvatar}
             className="post-card__author-avatar border border-2 border-dark"
           />
-           <Card.Title className='mx-3 fw-2'>{post.title}</Card.Title>
+           <Card.Title className='mx-3 py-2 fw-bold'>{post.title}</Card.Title>
         </Tooltip>
       </Card.Header>
-      <Card.Img variant="top" src={post.image}  style={{height:"10rem", overflow:'hidden'}}/>
-      <Card.Body style={{height:'8rem', color:'#FFE6C7'}} className='bg-dark no-border rounded-0'>
+      <Card.Img className='rounded-0' src={post.image}  style={{height:"10rem", overflow:'hidden'}}/>
+      <Card.Body className='border border-0'>
         
         <Card.Text>
           {post.content}
         </Card.Text>
       </Card.Body>
-      <Card.Footer className='d-flex justify-content-between'>
-        <div className='border border-2 rounded-3 p-1 border-dark bg-dark'>
+      <Card.Footer className='d-flex justify-content-between border border-0'>
+        <div className='pe-2'>
            <Typography className="my-1" variant="body2"color={'white'}  >
           {post.date}
         </Typography>
@@ -55,7 +54,7 @@ const PostCard = ({ post }) => {
           A: {post.endingPoint}
         </Typography>
 
-        <Typography className="space-between" variant="body2" color={'white'}  >
+        <Typography className="space-between"  color={'white'}  >
           <FaRoad />: {post.kilometers + "km"} - <RiTimerLine />: {post.travelTime + "ore"}
         </Typography>
         </div>

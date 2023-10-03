@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import { useDispatch, useSelector } from 'react-redux';
 import {FaTrash} from 'react-icons/fa'
 import { deleteMotoFromUserProfileAsync } from '../../redux/userSlice';
+import './motoCard.css'
 
 function MotoCard({ moto, userId }) {
 
@@ -22,7 +23,7 @@ function MotoCard({ moto, userId }) {
 					<Card.Title>{moto.brand + " " + moto.model}</Card.Title>
 				</Card.Body>
 				<Card.Footer>
-					<Button onClick={() => handleDeleteMoto(userId, moto._id)} className='btn btn-outline-danger py-1'> <FaTrash/> </Button>
+					<Button onClick={() => handleDeleteMoto(userId, moto._id)} className='btn-grad'> <FaTrash/> </Button>
 				</Card.Footer>
 			</Card>
 		</Col>

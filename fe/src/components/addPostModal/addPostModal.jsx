@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { Form, Button, Row, Col, Modal } from "react-bootstrap";
 import { PiSignpostBold } from 'react-icons/pi';
 import { getPosts, postPost } from '../../redux/postSlice';
+import './addPostModal.css'
 
 const AddPostModal = () => {
 	const dispatch = useDispatch();
@@ -56,7 +57,7 @@ const AddPostModal = () => {
 
 	return (
 		<>
-			<Button className='btn btn-dark' variant='dark' onClick={toggleShow}>Aggiungi post</Button>
+			<Button className='btn-grad' onClick={toggleShow}>Aggiungi post</Button>
 			<Modal show={optSmModal} onHide={toggleShow}>
 				<Modal.Header closeButton>
 					<Modal.Title>Aggiungi un post alla bacheca!</Modal.Title>

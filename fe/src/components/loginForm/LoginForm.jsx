@@ -115,7 +115,7 @@ function LoginForm() {
                 <MDBBtn className='w-100 mb-4 bg-danger' size='md' onClick={loginSubmit}>Login <FaMotorcycle /> </MDBBtn>
 
                 <div className='d-flex justify-content-center mb-4'>
-                  don't have an account?   <a onClick={goToRegistration}> Register now!</a>
+                  don't have an account?   <a style={{cursor:'pointer'}} onClick={goToRegistration}> Register now!</a>
                 </div>
 
                 <div className="text-center">

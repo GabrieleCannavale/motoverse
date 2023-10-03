@@ -1,6 +1,21 @@
 .post-card {
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Aggiunge ombreggiatura */
-  transition: box-shadow 0.3s ease; /* Aggiunge una transizione all'ombreggiatura */
+  background: -webkit-linear-gradient(to right, #b31217b0, #e52d278b);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right,  #b31217b0, #e52d278b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      margin: 10px;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  display: block;
+}
+
+.post-card:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .post-card__image {
@@ -32,12 +47,8 @@
 }
 
 .experience-level {
-  background-color: #FF6000;
-  color: white;
+	background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  color: rgb(192, 8, 8);
   font-weight: bold;
   text-align: center;
-}
-
-.post-card:hover {
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Cambia l'ombreggiatura al passaggio del mouse */
 }
