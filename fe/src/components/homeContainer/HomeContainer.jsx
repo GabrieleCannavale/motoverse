@@ -9,12 +9,12 @@ const HomeContainer = () => {
 
 
       <div className='order-md-1 order-2 col-md-8 col-sm-12 main-body'>
-        <PostContainer />
+        <PostContainer  className='border border-2 border-dark'/>
       </div>
 
 
       <div className='order-md-2 order-1 col-md-4 col-sm-12 map-cont'>
-        <MapBox  />
+        <MapBox />
       </div>
 
 

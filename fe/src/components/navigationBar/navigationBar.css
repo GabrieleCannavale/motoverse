@@ -1,5 +1,11 @@
 .logo-image {
-    width: 120px; 
-    height: 70px; 
+    width: 120px;
+    height: 70px;
     object-fit: cover;
+}
+
+
+.navibar {
+    background: rgb(33, 19, 4);
+    background: linear-gradient(0deg, rgba(33, 19, 4, 1) 0%, rgba(255, 122, 4, 1) 46%, rgba(71, 40, 11, 1) 100%);
 }

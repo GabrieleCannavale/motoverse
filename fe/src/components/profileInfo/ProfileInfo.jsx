@@ -71,7 +71,7 @@ export default function ProfileInfo() {
   return (
     <>
       <NavigationBar />
-      <div className="gradient-custom-2 my-5" style={{ backgroundColor: '#454545' }}>
+      <div className="main-body gradient-custom-2 my-5">
         <MDBContainer className="py-5 h-100">
           <MDBRow className="justify-content-center align-items-center h-100">
             <MDBCol lg="9" xl="7">
@@ -111,7 +111,7 @@ export default function ProfileInfo() {
                     </div>
 
                     <div className="p-4" style={{ backgroundColor: '#f8f9fa' }}>
-                      <MDBCardText className="font-italic mb-0">Sono Valentino Rossi, un'appassionato di motociclismo che brucia l'asfalto con passione e determinazione. Sempre in cerca di nuovi amici con cui condividere avventure su due ruote e scoprire nuovi percorsi emozionanti.{session.bio}</MDBCardText>
+                      <MDBCardText className="font-italic mb-0">Sono Valentino Rossi, un appassionato di motociclismo che dopo aver vinto 9 titoli mondiali con passione e determinazione è sempre in cerca di nuovi amici con cui condividere avventure su due ruote e scoprire nuovi percorsi emozionanti.{session.bio}</MDBCardText>
                     </div>
                   </div>
                   <div className="d-flex justify-content-between align-items-baseline mb-4">

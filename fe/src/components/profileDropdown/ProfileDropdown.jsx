@@ -30,11 +30,11 @@ export default function ProfileDropdown() {
 	const username = decodedToken.username;
 
 	return (
-		<MDBDropdown>
-			<MDBDropdownToggle tag='a'>
+		<MDBDropdown className='no-arrow'>
+			<MDBDropdownToggle tag='a'  >
 				<img
 					src={userAvatar}
-					className="rounded-circle profile-image"
+					className="rounded-circle profile-image border border-2 border-white"
 					alt="Avatar"
 				/>
 			</MDBDropdownToggle>
