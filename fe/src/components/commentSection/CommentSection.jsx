@@ -19,7 +19,7 @@ export default function CommentSection({ comment }) {
       <MDBContainer className="py-3 d-flex">
         <MDBRow className="justify-content-center w-100">
           <MDBCol md="12" lg="10" xl="8" className="w-100">
-            <MDBCard className="comment-card">
+            <MDBCard className="ms-3 comment-card">
               <MDBCardBody>
                 <div className="d-flex flex-start">
                   <MDBCardImage

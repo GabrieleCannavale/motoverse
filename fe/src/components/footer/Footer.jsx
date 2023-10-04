@@ -11,18 +11,16 @@ export default function Footer() {
 		<MDBFooter className='foooter text-center text-white'>
 			<MDBContainer className='pt-4'>
 				<section className='mb-4 d-flex justify-content-center space-evenly'>
-					<a href='https://www.facebook.com/' target='_blank' rel='noopener noreferrer'><BsFacebook className='icon mx-2' /></a>
-					<a href='https://github.com/GabrieleCannavale/motoverse' target='_blank' rel='noopener noreferrer'><BsGithub className='icon mx-2' /></a>
-					<a href='https://twitter.com/' target='_blank' rel='noopener noreferrer'><BsTwitter className='icon mx-2' /></a>
-					<a href='linkedin.com/in/gabriele-cannavale-a8a038140' target='_blank' rel='noopener noreferrer'><BsLinkedin className='icon mx-2' /></a>
+					<a href='https://www.facebook.com/'><BsFacebook className='icon mx-2' /></a>
+					<a href='https://github.com/GabrieleCannavale/motoverse'><BsGithub className='icon mx-2' /></a>
+					<a href='https://twitter.com/'><BsTwitter className='icon mx-2' /></a>
+					<a href='linkedin.com/in/gabriele-cannavale-a8a038140'><BsLinkedin className='icon mx-2' /></a>
 				</section>
 			</MDBContainer>
 
-			<div className='text-center text-dark p-3' style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
-				© 2023 Copyright:
-				<a className='text-dark' href='https://mdbootstrap.com/'>
-					Motoverse.it
-				</a>
+			<div className='text-center text-white p-3' style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
+				this is Motoverse.it proudly developed by <span className='fw-bolder fst-italic'>Il Gringo</span>
+				
 			</div>
 		</MDBFooter>
 	);

@@ -26,13 +26,13 @@ const PostCard = ({ post }) => {
     
     <Card className='post-card border border-1 border-dark'>
       <Card.Header style={{height:"5rem"}}>
-        <Tooltip className="tool-avatar d-flex align-items-baseline bg-white text-dark border rounded-pill" title={post.user.username}>
+        <Tooltip className="tool-avatar d-flex align-items-baseline bg-white border rounded-pill" title={post.user.username}>
           <Avatar
             alt={post.user.username}
             src={post.user.userAvatar}
             className="post-card__author-avatar border border-2 border-dark"
           />
-           <Card.Title className='mx-3 py-2 fw-bold'>{post.title}</Card.Title>
+           <Card.Title className='title mx-3 py-2 fw-bold fst-italic'>{post.title}</Card.Title>
         </Tooltip>
       </Card.Header>
       <Card.Img className='rounded-0' src={post.image}  style={{height:"10rem", overflow:'hidden'}}/>

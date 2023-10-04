@@ -54,7 +54,7 @@ const MapBox = () => {
 
   return (
     <div style={{ height: "100vh", width: "100%", position: '-webkit-sticky', top: '50px' }}>
-      <MapContainer maxBounds={[[-90, -190], [90, 190]]} center={[41.8719, 12.5674]} zoom={13}>
+      <MapContainer maxBounds={[[-90, -190], [90, 190]]} center={[41.8719, 12.5674]} zoom={6}>
         <TileLayer
           
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

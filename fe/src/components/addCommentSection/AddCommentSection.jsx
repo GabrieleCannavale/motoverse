@@ -30,18 +30,23 @@ export default function AddCommentSection({ post }) {
 
   return (
     <section className="comment-container">
-      <Container className="py-3 d-flex">
+      <Container className="py-3">
         <Row className="justify-content-center w-100">
           <Col md="12" lg="10" xl="8" className="w-100">
-            <Card className="comment-card">
-              <Card.Body className="p-2 d-flex">
-                <img
+            <Card className="ms-3 comment-card">
+
+              <Card.Body className="p-2 d-flex flex-column">
+                <div className="d-flex align-items-center py-1">
+                    <img
                   className="comment-avatar me-2"
                   src={session.userAvatar}
                   alt="avatar"
-                />
+                /> 
+                <h5>{session.username}</h5>
+                </div>
+              
                 <div className="comment-content">
-                  <h5>{session.username}</h5>
+                 
                   <Form.Group controlId="comment">
                     <Form.Control
                       as="textarea"

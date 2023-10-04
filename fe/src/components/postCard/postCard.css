@@ -36,6 +36,11 @@
   left: 1px;
 }
 
+.title {
+  color: #b31217 !important;
+}
+
+
 .tool-avatar {
   border: 0 !important;
   margin: 0 !important;
