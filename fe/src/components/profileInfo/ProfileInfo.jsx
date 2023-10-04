@@ -112,7 +112,7 @@ export default function ProfileInfo() {
                     </div>
 
                     <div className="p-4" style={{ backgroundColor: '#f8f9fa' }}>
-                      <MDBCardText className="font-italic mb-0">Sono Valentino Rossi, un appassionato di motociclismo che dopo aver vinto 9 titoli mondiali con passione e determinazione è sempre in cerca di nuovi amici con cui condividere avventure su due ruote e scoprire nuovi percorsi emozionanti.{session.bio}</MDBCardText>
+                      <MDBCardText className="font-italic mb-0">{session.bio}</MDBCardText>
                     </div>
                   </div>
                   <div className="d-flex justify-content-between align-items-baseline mb-4">
